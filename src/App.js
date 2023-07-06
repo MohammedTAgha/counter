@@ -5,7 +5,7 @@ import { Counter } from './Components';
 function App() {
   return (
     <div >
-        <Counter initial={4}/>
+        <Counter initial={2}/>
         {/* <Counter initial={4}/>
         <Counter initial={4}/> */}
     </div>

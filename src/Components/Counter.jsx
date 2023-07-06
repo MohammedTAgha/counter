@@ -5,7 +5,20 @@ export default class Counter extends Component {
     state = {
         myCount : this.props.initial
     }
-
+    
+    componentDidMount(){
+        
+    }
+    increment =()=>{
+        
+        this.setState((prevState) =>{
+            return {
+                myCount: prevState.myCount + 1
+               
+            };
+  
+        })
+    }
     
 
   render() {
@@ -19,7 +32,7 @@ export default class Counter extends Component {
     `;
 
     return <Container>
-        <button>
+        <button onClick={this.increment}>
             +
         </button>
         <p>
