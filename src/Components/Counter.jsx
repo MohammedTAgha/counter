@@ -5,21 +5,26 @@ export default class Counter extends Component {
   state = {
     myCount: this.props.initial,
   };
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getTotal(this.state.myCount);
+  }
+
   increment = () => {
-    this.setState((prevState) => {
-      return {
-        myCount: prevState.myCount + 1,
-      };
-    });
+    this.setState((prevState) => ({
+        myCount: this.props.initial
+        ? prevState.myCount + this.props.initial
+        : prevState.myCount + 1,
+    }));
+    this.props.getTotal(this.props.initial || 1);
   };
 
   decrement = () => {
-    this.setState((prevState) => {
-      return {
-        myCount: prevState.myCount - 1,
-      };
-    });
+    this.setState((prevState) => ({
+        myCount: this.props.initial
+        ? prevState.myCount - this.props.initial
+        : prevState.myCount - 1,
+    }));
+    this.props.getTotal(-this.props.initCount || -1);
   };
 
   render() {
