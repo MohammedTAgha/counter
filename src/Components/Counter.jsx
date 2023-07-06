@@ -2,24 +2,25 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 export default class Counter extends Component {
-    state = {
-        myCount : this.props.initial
-    }
-    
-    componentDidMount(){
-        
-    }
-    increment =()=>{
-        
-        this.setState((prevState) =>{
-            return {
-                myCount: prevState.myCount + 1
-               
-            };
-  
-        })
-    }
-    
+  state = {
+    myCount: this.props.initial,
+  };
+  componentDidMount() {}
+  increment = () => {
+    this.setState((prevState) => {
+      return {
+        myCount: prevState.myCount + 1,
+      };
+    });
+  };
+
+  decrement = () => {
+    this.setState((prevState) => {
+      return {
+        myCount: prevState.myCount - 1,
+      };
+    });
+  };
 
   render() {
     const Container = styled.div`
@@ -28,19 +29,15 @@ export default class Counter extends Component {
       justify-content: center;
       align-items: center;
       width: 190px;
-      font-weight:700;
+      font-weight: 700;
     `;
 
-    return <Container>
-        <button onClick={this.increment}>
-            +
-        </button>
-        <p>
-            {this.state.myCount}
-        </p>
-        <button>
-            -
-        </button>
-    </Container>;
+    return (
+      <Container>
+        <button onClick={this.increment}>+</button>
+        <p>{this.state.myCount}</p>
+        <button onClick={this.decrement}>-</button>
+      </Container>
+    );
   }
 }
