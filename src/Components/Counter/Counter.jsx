@@ -31,12 +31,15 @@ class Counter extends Component {
 
   render() {
     const Container = styled.div`
+    position: relative;
+    
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 190px;
       font-weight: 700;
+
     `;
 
     return (
