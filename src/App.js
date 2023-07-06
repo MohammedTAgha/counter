@@ -18,7 +18,11 @@ const Container = styled.div`
   }
 
   getTotal=(num)=>{
-    this.setState(prevState => ({total : prevState.total + num}))
+    this.setState((prevState) => ({
+      total: prevState.total + num,
+    })
+    
+    )
   }
   
   render(){
@@ -26,7 +30,7 @@ const Container = styled.div`
     <Container>
         <Counter initial={2} getTotal={this.getTotal} />
         <Counter initial={4} getTotal={this.getTotal}/>
-        <Counter initial={100} getTotal={this.getTotal}/>
+        <Counter initial={10} getTotal={this.getTotal}/>
         <p>total : {this.state.total}</p>
     </Container>
   );

@@ -1,30 +1,30 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import styled from "styled-components";
 
-export default class Counter extends Component {
+class Counter extends Component {
   state = {
     myCount: this.props.initial,
   };
+
   componentDidMount() {
     this.props.getTotal(this.state.myCount);
   }
 
   increment = () => {
     this.setState((prevState) => ({
-        myCount: this.props.initial
-        ? prevState.myCount + this.props.initial
-        : prevState.myCount + 1,
+      myCount: prevState.myCount + (this.props.initial || 1),
     }));
     this.props.getTotal(this.props.initial || 1);
   };
 
   decrement = () => {
+
+   if (this.state - this.props.initial > 0   ){
     this.setState((prevState) => ({
-        myCount: this.props.initial
-        ? prevState.myCount - this.props.initial
-        : prevState.myCount - 1,
+      myCount: prevState.myCount - (this.props.initial || 1),
     }));
-    this.props.getTotal(-this.props.initCount || -1);
+   }
+    this.props.getTotal(-(this.props.initial || 1));
   };
 
   render() {
@@ -46,3 +46,5 @@ export default class Counter extends Component {
     );
   }
 }
+
+export default Counter;
